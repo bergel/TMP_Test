@@ -21,6 +21,7 @@ function run_pkg_build(pkg)
         @spawn 1 + 2
         x = false
         true || x
+		
         println(Threads.nthreads())
 
 	@info `$(Base.julia_cmd()) -e "using Pkg; Pkg.build(\"$(pkg)\")"`
