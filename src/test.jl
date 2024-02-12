@@ -4,7 +4,7 @@
 # optionally updating the package Manifest.toml prior to build.
 import Pkg
 
-pkg = isempty(ARGS) ? "RAICode" : ARGS[1]
+pkg = isempty(ARGS) ?  "RAICode" : ARGS[1]
 
 Pkg.activate(@__DIR__)
 
