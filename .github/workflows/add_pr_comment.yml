@@ -23,7 +23,9 @@ jobs:
     - uses: mshick/add-pr-comment@v2
       with:
         message-path: result.txt
+    - uses: mshick/add-pr-comment@v2
+      with:
         message: |
           **Hello**
           🌏
-          !
+          !          
