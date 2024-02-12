@@ -21,5 +21,6 @@ jobs:
       run: bash run_static_lint.sh
       
     - uses: mshick/add-pr-comment@v2
+      if: always()
       with:
         message-path: result.txt
