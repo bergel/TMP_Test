@@ -9,5 +9,5 @@ julia --proj -e "import Pkg ; Pkg.Registry.update() ; Pkg.instantiate() ; Pkg.bu
 cd ..
 
 # RUNNING THE CHECK
-julia --project=StaticLint.jl -e "using StaticLint ; open(\"result.txt\") do io StaticLint.run_lint(\"src\"; io) end" 
+julia --project=StaticLint.jl -e "using StaticLint ; open(\"result.txt\", \"w\") do io StaticLint.run_lint(\"src\"; io) end" 
 cat result.txt
