@@ -12,11 +12,12 @@ const n = 12 #Threads.nthreads()
 
 function foo(x)
     println("hello")
+    @async 1 + 2
 end
 
 function run_pkg_build(pkg)
     try
-        @spawn 1 + 2
+        @async 1 + 2
         # x = false
         # true || x
         println(Threads.nthreads())
