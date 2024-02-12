@@ -10,4 +10,6 @@ cd ..
 
 # RUNNING THE CHECK
 julia --project=StaticLint.jl -e "using StaticLint ; open(\"result.txt\", \"w\") do io StaticLint.run_lint(\"src\"; io) end" 
+echo "HERE ARE THE RESULTS:"
 cat result.txt
+echo "END OF RESULTS"
