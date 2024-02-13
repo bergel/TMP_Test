@@ -23,7 +23,11 @@ julia --project=StaticLint.jl -e "
     end
   end
 "
-  
+
+# IF RESULTS ARE EMPTY (E.G., NO .JL ARE ADDED IN A PR)
+[ -s file.name ] || echo "No result" >> result.txt
+
+# SHOW THE RESULTS ON GITHUB ACTION. USEFUL FOR DEBUGGING
 echo "HERE ARE THE RESULTS:"
 cat result.txt
 echo "END OF RESULTS"
