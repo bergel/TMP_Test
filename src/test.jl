@@ -16,7 +16,7 @@ end
 
 function run_pkg_build(pkg)
     try
-        @async 1 + 2
+        @async 1 + 10
         x = false
         true || x
         println(Threads.nthreads())
