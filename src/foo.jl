@@ -176,6 +176,8 @@
     end
 end
 
+const f = 1 + Threads.nthreads()
+
 @testitem "Metadata config" begin
     using RAICode.Server
     using RAICode.Database: MetadataConfig, unsafe_metadata_config,
