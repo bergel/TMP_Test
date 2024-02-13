@@ -9,6 +9,8 @@ cd ..
 
 # WRITING FILES ON WHICH LINT SHOULD BE RUN
 cat ${ALL_CHANGED_FILES} > files_to_run_lint.txt
+echo "FILES TO BE LINTED"
+cat files_to_run_lint.txt
 
 # RUNNING THE CHECK
 julia --project=StaticLint.jl -e "
@@ -16,6 +18,7 @@ julia --project=StaticLint.jl -e "
   files_to_run_lint = readlines(\"files_to_run_lint.txt\")
   open(\"result.txt\", \"w\") do output_io 
     for file_to_run_lint in files_to_run_lint
+      println(\"RUNNING ON: $file_to_run_lint\")
       StaticLint.run_lint(file_to_run_lint; io=output_io, filters=essential_filters, formatter=MarkdownFormat()) 
     end
   end
