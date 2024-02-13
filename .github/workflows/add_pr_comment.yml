@@ -16,7 +16,22 @@ jobs:
     - uses: julia-actions/setup-julia@v1
       with:
         version: '1.10'
-            
+
+    - name: Get changed files
+      id: changed-files
+      uses: tj-actions/changed-files@v42
+      # To compare changes between the current commit and the last pushed remote commit set `since_last_remote_commit: true`. e.g
+      # with:
+      #   since_last_remote_commit: true 
+
+    - name: List all changed files
+      env:
+        ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
+      run: |
+        for file in ${ALL_CHANGED_FILES}; do
+          echo "$file was changed"
+        done
+          
     - name: Run lint
       run: bash run_static_lint.sh
       
