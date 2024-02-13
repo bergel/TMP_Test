@@ -8,7 +8,7 @@ pkg = isempty(ARGS) ? "RAICode" : ARGS[1]
 
 Pkg.activate(@__DIR__)
 
-const n = 12 #Threads.nthreads()
+const n = Threads.nthreads()
 
 function foo(x)
     println("hello world!!")
@@ -16,7 +16,7 @@ end
 
 function run_pkg_build(pkg)
     try
-        @spawn 1 + 101
+        @async 1 + 101
         #x = false
         #true || x
         println(Threads.nthreads())
