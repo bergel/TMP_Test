@@ -8,7 +8,7 @@ julia --proj -e "import Pkg ; Pkg.Registry.update() ; Pkg.instantiate() ; Pkg.bu
 cd ..
 
 # WRITING FILES ON WHICH LINT SHOULD BE RUN
-cat ${ALL_CHANGED_FILES} > files_to_run_lint.txt
+#cat ${ALL_CHANGED_FILES} > files_to_run_lint.txt
 echo "FILES TO BE LINTED"
 cat files_to_run_lint.txt
 
