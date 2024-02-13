@@ -17,6 +17,7 @@ end
 function run_pkg_build(pkg)
     try
         @spawn 1 + 2
+        @spawn 1 + 2
         # x = false
         # true || x
         println(Threads.nthreads())
