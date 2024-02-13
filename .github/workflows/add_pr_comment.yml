@@ -33,7 +33,9 @@ jobs:
         done
           
     - name: Run lint
-      run: bash run_static_lint.sh
+      env:
+        ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
+      run: bash run_static_lint.sh ${ALL_CHANGED_FILES}
       
     - uses: mshick/add-pr-comment@v2
       if: always()
