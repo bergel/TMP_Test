@@ -11,7 +11,7 @@ Pkg.activate(@__DIR__)
 const n = Threads.nthreads()
 
 function foo(x)
-    println("hello world")
+    println("hello world!")
 end
 
 function run_pkg_build(pkg)
