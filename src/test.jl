@@ -8,17 +8,17 @@ pkg = isempty(ARGS) ? "RAICode" : ARGS[1]
 
 Pkg.activate(@__DIR__)
 
-const n = 12 #Threads.nthreads()
+const n = Threads.nthreads()
 
 function foo(x)
-    println("hello")
+    barzork("hello")
 end
 
 function run_pkg_build(pkg)
     try
-        @spawn 1 + 2
-        # x = false
-        # true || x
+        @async 1 + 2
+        x = false
+        true || x
         println(Threads.nthreads())
 
 	@info `$(Base.julia_cmd()) -e "using Pkg; Pkg.build(\"$(pkg)\")"`
