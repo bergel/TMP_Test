@@ -4,7 +4,6 @@ name: Run static code analyzer Lint
 
 on:
   pull_request:
-  push:
 
 jobs:
   run_lint:
