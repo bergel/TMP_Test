@@ -7,7 +7,7 @@ on:
 
 jobs:
   run_lint:
-    if: contains(github.event.pull_request.labels.*.name, 'build:lint')
+    if: contains(github.event.pull_request.labels.*.name, 'build:lint') || github.event.label.name == 'build:lint'
     runs-on: ubuntu-latest
     permissions:
       pull-requests: write
