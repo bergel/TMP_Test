@@ -39,5 +39,5 @@ jobs:
       if: always()
       with:
         message-path: result.txt
-        refresh-message-position: true
-        allow-repeats: true
+        # refresh-message-position: true
+        # allow-repeats: true
