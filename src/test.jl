@@ -8,7 +8,7 @@ pkg = isempty(ARGS) ? "RAICode" : ARGS[1]
 
 Pkg.activate(@__DIR__)
 
-const n = 12 #Threads.nthreads()
+const n = 3123 #Threads.nthreads()
 
 function foo(x)
     println("hello")
