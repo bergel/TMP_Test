@@ -13,10 +13,10 @@ jobs:
     - name: Check if lint must be run
       env:
         ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
-        PR_LABELS: ${{ github.event.pull_request.labels }}
+        # PR_LABELS: ${{ github.event.pull_request.labels }}
         LABEL_NAME: ${{ github.event.label.name }}
       run: |
-        echo "ALL_CHANGED_FILES: " ${ALL_CHANGED_FILES}
+        echo "ALL_CHANGED_FILES: " ${ALL_CHANGED_FILES} ${{ github.event.pull_request.labels }}
         echo "PR_LABELS: " ${PR_LABELS}
         echo "LABEL_NAME: " ${LABEL_NAME}
       
