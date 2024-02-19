@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # CLONING AND BUILDING StaticLint.jl
-git clone https://github.com/bergel/StaticLint.jl.git
+git clone https://github.com/RelationalAI/StaticLint.jl
 cd StaticLint.jl
 echo "HERE: $PWD"
 julia --proj -e "import Pkg ; Pkg.Registry.update() ; Pkg.instantiate() ; Pkg.build()"
