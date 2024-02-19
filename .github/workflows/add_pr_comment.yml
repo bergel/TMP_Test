@@ -7,6 +7,18 @@ on:
   label:
 
 jobs:
+  check_if_lint_must_be_run:
+    steps:
+    - name: Check if lint must be run
+      env:
+        ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
+        PR_LABELS: ${{ github.event.pull_request.labels.*.name }}
+        LABEL_NAME: ${{ github.event.label.name }}
+      run: |
+        echo "ALL_CHANGED_FILES: " ${ALL_CHANGED_FILES}
+        echo "PR_LABELS: " ${PR_LABELS}
+        echo "LABEL_NAME: " ${LABEL_NAME}
+      
   run_lint:
     if: contains(github.event.pull_request.labels.*.name, 'build:lint') || github.event.label.name == 'build:lint'
     runs-on: ubuntu-latest
