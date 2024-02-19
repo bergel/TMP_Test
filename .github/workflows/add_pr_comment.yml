@@ -8,6 +8,7 @@ on:
 
 jobs:
   check_if_lint_must_be_run:
+    runs-on: ubuntu-latest
     steps:
     - name: Check if lint must be run
       env:
