@@ -12,15 +12,13 @@ jobs:
     steps:
     - name: Check if lint must be run
       env:
-        ALL_CHANGED_FILES: ${{ steps.changed-files.outputs.all_changed_files }}
-        # PR_LABELS: ${{ github.event.pull_request.labels }}
-        LABEL_NAME: ${{ github.event.label.name }}
-        DD: ${{ contains(github.event.pull_request.labels.*.name, 'build:lint') || github.event.label.name == 'build:lint' }}
+        HAS_LABEL: ${{ contains(github.event.pull_request.labels.*.name, 'build:lint') }}
+        ADDING_LABEL: ${{ github.event.label.name == 'build:lint'}}
+        SHOULD_RUN_LINT: ${{ contains(github.event.pull_request.labels.*.name, 'build:lint') || github.event.label.name == 'build:lint' }}
       run: |
-        echo "ALL_CHANGED_FILES: " ${ALL_CHANGED_FILES} ${{ github.event.pull_request.labels }}
-        echo "PR_LABELS: " ${PR_LABELS}
-        echo "LABEL_NAME: " ${LABEL_NAME} ${{ github.event.label.name }}
-        echo "DD: " ${DD}
+        echo "HAS_LABEL: " ${HAS_LABEL}
+        echo "ADDING_LABEL: " ${LABEL_NAME}
+        echo "Should run lint: " ${SHOULD_RUN_LINT}
       
   run_lint:
     if: contains(github.event.pull_request.labels.*.name, 'build:lint') || github.event.label.name == 'build:lint'
