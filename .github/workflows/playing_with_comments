@@ -1,3 +1,5 @@
+name: Playing with comments
+
 on:
   pull_request:
 
